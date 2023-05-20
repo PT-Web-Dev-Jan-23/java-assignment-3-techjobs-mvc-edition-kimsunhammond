@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
+<!--    <link href="../static/css/joblisting.css" th:href="@{/css/joblisting.css}" rel="stylesheet" />-->
 </head>
 <body>
 
@@ -10,7 +11,57 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
+
     <!-- TODO #1 - Use a loop to display job results in a table. -->
+
+<!--        <td>All</td>-->
+<!--        <td th:text = "${job.}"></td>-->
+
+        <th:block th:each = "job : ${jobs}">
+            <table class="job-listing">
+                <tr>
+                    <td>ID</td>
+                    <td th:text = "${job.id}"></td>
+                </tr>
+
+                <tr>
+                    <td>Name</td>
+                    <td th:text = "${job.name}"></td>
+                </tr>
+
+                <tr>
+                    <td>Employer</td>
+                    <td th:text = "${job.employer}"></td>
+                </tr>
+
+                <tr>
+                    <td>Location</td>
+                    <td th:text = "${job.location}"></td>
+                </tr>
+
+                <tr>
+                    <td>Position Type</td>
+                    <td th:text = "${job.positionType}"></td>
+                </tr>
+
+                <tr>
+                    <td>Skill</td>
+                    <td th:text = "${job.coreCompetency}"></td>
+                </tr>
+            </table>
+
+        </th:block>
+
+
+<!--    <th:block th:each = "shop : ${shops}">  &lt;!&ndash; Iterate through shops &ndash;&gt;-->
+<!--        <p th:text = "${shop.name}">Shop name</p>-->
+<!--        <ul>-->
+<!--            &lt;!&ndash; Iterate through coffeeOptions &ndash;&gt;-->
+<!--            <th:block th:each = "flavor : shop.coffeeOptions">-->
+<!--                <li th:text="${flavor}"></li>-->
+<!--            </th:block>-->
+<!--        </ul>-->
+<!--    </th:block>-->
 
 </div>
 
